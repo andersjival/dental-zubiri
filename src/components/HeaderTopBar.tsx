@@ -1,50 +1,65 @@
-import React from 'react';
-import { Phone, Clock, Sparkles, Lock } from 'lucide-react';
+import React, { useState } from 'react';
+import { Sparkles, ArrowRight, X, Lock, Phone } from 'lucide-react';
 import { CLINIC_INFO } from '../data/dentalData';
 
 interface HeaderTopBarProps {
+  onOpenBooking?: () => void;
   onOpenAdmin?: () => void;
 }
 
-export const HeaderTopBar: React.FC<HeaderTopBarProps> = ({ onOpenAdmin }) => {
+export const HeaderTopBar: React.FC<HeaderTopBarProps> = ({ onOpenBooking, onOpenAdmin }) => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  if (!isVisible) return null;
+
   return (
-    <div className="bg-slate-900 text-slate-200 text-xs sm:text-sm py-2 px-4 border-b border-slate-800">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-        <div className="flex items-center gap-2 text-slate-300">
-          <span className="inline-flex items-center gap-1.5 bg-brand-600/30 text-brand-300 px-2 py-0.5 rounded-full text-[11px] font-medium border border-brand-500/20">
-            <Sparkles className="w-3 h-3 text-brand-400" /> Tecnología Philips Zoom
-          </span>
-          <span className="hidden md:inline text-slate-400">|</span>
-          <span className="hidden md:inline">Consultas y valoraciones de estética dental con la Dra. Zubiri</span>
+    <div className="bg-[#0f172a] text-white text-xs sm:text-sm py-2 px-4 border-b border-slate-800 transition-all relative z-50">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+        
+        {/* Left spacer for centering balance on desktop */}
+        <div className="hidden lg:flex items-center gap-2 text-slate-400 text-xs">
+          <Phone className="w-3.5 h-3.5 text-brand-400" />
+          <span>{CLINIC_INFO.phoneDisplay}</span>
         </div>
 
-        <div className="flex items-center gap-4 text-slate-300 font-medium">
-          <a
-            href={`tel:${CLINIC_INFO.whatsapp}`}
-            className="flex items-center gap-1.5 hover:text-white transition-colors"
-          >
-            <Phone className="w-3.5 h-3.5 text-brand-400" />
-            <span>{CLINIC_INFO.phoneDisplay}</span>
-          </a>
-          <span className="text-slate-600 hidden sm:inline">•</span>
-          <div className="hidden sm:flex items-center gap-1.5 text-slate-400">
-            <Clock className="w-3.5 h-3.5 text-brand-400" />
-            <span>Lun - Sáb: 9:00 - 19:00</span>
+        {/* Center: Faithful Announcement matching template */}
+        <div className="flex-1 flex items-center justify-center gap-2.5 sm:gap-3 flex-wrap text-center">
+          <div className="flex items-center gap-1.5 text-slate-200 font-medium">
+            <Sparkles className="w-3.5 h-3.5 text-brand-400 shrink-0" />
+            <span>Atención Odontológica Especializada con Tecnología Philips Zoom</span>
           </div>
-          {onOpenAdmin && (
-            <>
-              <span className="text-slate-600 hidden sm:inline">•</span>
-              <button
-                onClick={onOpenAdmin}
-                className="inline-flex items-center gap-1 text-slate-300 hover:text-brand-300 bg-slate-800 hover:bg-slate-700 px-2.5 py-1 rounded-lg text-xs font-semibold transition-colors cursor-pointer border border-slate-700"
-                title="Acceso exclusivo para la Dra. Zubiri y recepción"
-              >
-                <Lock className="w-3 h-3 text-brand-400" />
-                <span>Panel Doctora</span>
-              </button>
-            </>
-          )}
+
+          <button
+            onClick={onOpenBooking}
+            className="inline-flex items-center gap-1.5 bg-white hover:bg-slate-100 text-slate-900 font-bold text-[11px] sm:text-xs px-3.5 py-1 rounded-full shadow-sm transition-transform active:scale-95 cursor-pointer whitespace-nowrap"
+          >
+            <span>Agendar Cita</span>
+            <ArrowRight className="w-3 h-3 text-brand-600" />
+          </button>
         </div>
+
+        {/* Right side: Doctor Admin & Dismiss button */}
+        <div className="flex items-center gap-2">
+          {onOpenAdmin && (
+            <button
+              onClick={onOpenAdmin}
+              className="inline-flex items-center gap-1 text-slate-300 hover:text-white bg-slate-800/80 hover:bg-slate-750 px-2.5 py-1 rounded-full text-[11px] font-semibold transition-colors border border-slate-700/80 cursor-pointer"
+              title="Panel confidencial de la doctora"
+            >
+              <Lock className="w-3 h-3 text-brand-400" />
+              <span className="hidden sm:inline">Panel</span> Doctora
+            </button>
+          )}
+
+          <button
+            onClick={() => setIsVisible(false)}
+            className="text-slate-400 hover:text-white p-1 rounded-full hover:bg-slate-800 transition-colors"
+            aria-label="Cerrar aviso"
+          >
+            <X className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
       </div>
     </div>
   );

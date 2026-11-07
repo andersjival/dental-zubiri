@@ -30,7 +30,10 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Top Banner & Navigation */}
-      <HeaderTopBar onOpenAdmin={() => booking.setIsAdminOpen(true)} />
+      <HeaderTopBar
+        onOpenBooking={() => scrollToBooking()}
+        onOpenAdmin={() => booking.setIsAdminOpen(true)}
+      />
       <Navbar onOpenBooking={() => scrollToBooking()} />
 
       {/* Main Page Flow */}

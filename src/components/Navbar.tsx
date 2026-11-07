@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Calendar, Menu, X } from 'lucide-react';
+import { Phone, ArrowRight, Menu, X } from 'lucide-react';
 import { CLINIC_INFO } from '../data/dentalData';
 
 interface NavbarProps {
@@ -8,24 +8,26 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('Inicio');
 
   const navLinks = [
     { label: 'Inicio', href: '#inicio' },
-    { label: 'Servicios', href: '#servicios' },
     { label: 'Sobre Nosotros', href: '#sobre-nosotros' },
+    { label: 'Servicios', href: '#servicios' },
     { label: 'Casos Clínicos', href: '#casos-clinicos' },
     { label: 'Testimonios', href: '#testimonios' },
-    { label: 'Agendar Cita', href: '#agendamiento' },
+    { label: 'Contacto', href: '#contacto' },
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Brand Logo */}
+        
+        {/* Brand Logo - Tooth outline matching template */}
         <a href="#inicio" className="flex items-center gap-3 group">
-          <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white shadow-md shadow-brand-500/25 group-hover:scale-105 transition-transform">
+          <div className="w-10 h-10 flex items-center justify-center text-brand-600 transition-transform group-hover:scale-105">
             <svg
-              className="w-6 h-6 stroke-current fill-none stroke-[2]"
+              className="w-9 h-9 stroke-brand-600 fill-none stroke-[1.8]"
               viewBox="0 0 24 24"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -34,50 +36,54 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               <path d="M9 12c.5 1.5 1.5 2 3 2s2.5-.5 3-2" />
             </svg>
           </div>
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-xl font-bold tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">
-                Dental Zubiri
-              </span>
-              <span className="w-2 h-2 rounded-full bg-brand-500"></span>
-            </div>
-            <span className="block text-[10px] font-semibold tracking-wider text-slate-500 uppercase">
-              Clínica Odontológica & Estética
+          <div className="leading-tight">
+            <span className="text-xl font-bold tracking-tight text-slate-900 block group-hover:text-brand-600 transition-colors">
+              Dental Zubiri
+            </span>
+            <span className="text-[10px] font-bold tracking-wider text-slate-500 uppercase block -mt-0.5">
+              CLÍNICA DENTAL
             </span>
           </div>
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-7">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors relative py-1 hover:after:w-full after:w-0 after:h-0.5 after:bg-brand-600 after:absolute after:bottom-0 after:left-0 after:transition-all"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeLink === link.label;
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setActiveLink(link.label)}
+                className={`text-sm font-semibold transition-colors relative py-1.5 ${
+                  isActive ? 'text-brand-600 font-bold' : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                {link.label}
+                {isActive && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-600 rounded-full" />
+                )}
+              </a>
+            );
+          })}
         </nav>
 
-        {/* Right CTA */}
+        {/* Right Action: Phone & Pill Button */}
         <div className="hidden sm:flex items-center gap-5">
           <a
             href={`tel:${CLINIC_INFO.whatsapp}`}
-            className="hidden xl:flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors"
+            className="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-brand-600 transition-colors"
           >
-            <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
-              <Phone className="w-4 h-4" />
-            </div>
+            <Phone className="w-4 h-4 text-brand-600 fill-brand-600/10" />
             <span>{CLINIC_INFO.phoneDisplay}</span>
           </a>
 
           <button
             onClick={onOpenBooking}
-            className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 active:scale-95 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md shadow-brand-600/25 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 bg-[#006fe6] hover:bg-[#005bb8] active:scale-95 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-md shadow-brand-600/20 transition-all cursor-pointer"
           >
-            <Calendar className="w-4 h-4" />
-            <span>Agendar Cita</span>
+            <span>Book an Appointment</span>
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
@@ -85,52 +91,48 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
         <div className="lg:hidden flex items-center gap-2">
           <button
             onClick={onOpenBooking}
-            className="sm:hidden bg-brand-600 text-white p-2 rounded-lg text-xs font-semibold flex items-center gap-1"
+            className="sm:hidden bg-[#006fe6] text-white px-3.5 py-1.5 rounded-full text-xs font-semibold"
           >
-            <Calendar className="w-4 h-4" />
-            <span>Cita</span>
+            Cita ➔
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+            className="p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100"
             aria-label="Abrir menú"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
+
       </div>
 
       {/* Mobile dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 animate-fadeIn">
+        <div className="lg:hidden bg-white border-b border-slate-200 px-5 pt-3 pb-6 space-y-3 animate-fadeIn shadow-lg">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-base font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors"
+              onClick={() => {
+                setActiveLink(link.label);
+                setMobileMenuOpen(false);
+              }}
+              className="block px-3 py-2 rounded-xl text-base font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition-colors"
             >
               {link.label}
             </a>
           ))}
-          <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
+          <div className="pt-3 border-t border-slate-100 space-y-2">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenBooking();
               }}
-              className="w-full bg-brand-600 text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 shadow-md shadow-brand-600/20"
+              className="w-full bg-[#006fe6] text-white font-semibold py-3 rounded-full flex items-center justify-center gap-2 shadow-md shadow-brand-600/20"
             >
-              <Calendar className="w-4 h-4" />
-              <span>Agendar Cita Médica</span>
+              <span>Agendar Consulta Médica</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
-            <a
-              href={`tel:${CLINIC_INFO.whatsapp}`}
-              className="w-full border border-slate-200 text-slate-700 font-medium py-2.5 rounded-xl flex items-center justify-center gap-2 hover:bg-slate-50 text-sm"
-            >
-              <Phone className="w-4 h-4 text-brand-600" />
-              <span>Llamar al {CLINIC_INFO.phoneDisplay}</span>
-            </a>
           </div>
         </div>
       )}

@@ -6,19 +6,23 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        handwritten: ['Caveat', 'cursive'],
+      },
       colors: {
         brand: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
+          50: '#f0f7ff',
+          100: '#e0effe',
+          200: '#bae0fd',
+          300: '#7cc7fb',
+          400: '#36a8f6',
+          500: '#0c8de7',
+          600: '#006fe6', // Exact vibrant template blue
+          700: '#0058b8',
+          800: '#044a96',
+          900: '#0a3f79',
+          950: '#07284f',
         },
       },
     },
