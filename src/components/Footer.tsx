@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
             </div>
 
             <p className="text-slate-500 text-[11px] leading-tight font-medium">
-              Healthy Smiles. Brighter Lives.
+              Sonrisas Saludables. Vidas Más Radiantes.
             </p>
 
             {/* Social icons */}
@@ -77,41 +77,41 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
             </div>
           </div>
 
-          {/* Col 2: Quick Links */}
+          {/* Col 2: Enlaces Rápidos */}
           <div>
             <h4 className="text-slate-900 font-bold text-xs tracking-wider uppercase mb-3">
-              Quick Links
+              Enlaces Rápidos
             </h4>
             <ul className="space-y-2 text-slate-600 text-xs">
-              <li><a href="#inicio" className="hover:text-brand-600">Home</a></li>
-              <li><a href="#sobre-nosotros" className="hover:text-brand-600">About</a></li>
-              <li><a href="#servicios" className="hover:text-brand-600">Services</a></li>
-              <li><a href="#casos-clinicos" className="hover:text-brand-600">Our Team / Cases</a></li>
-              <li><a href="#testimonios" className="hover:text-brand-600">Patient Stories</a></li>
-              <li><a href="#contacto" className="hover:text-brand-600">Contact</a></li>
+              <li><a href="#inicio" className="hover:text-brand-600">Inicio</a></li>
+              <li><a href="#sobre-nosotros" className="hover:text-brand-600">Sobre Nosotros</a></li>
+              <li><a href="#servicios" className="hover:text-brand-600">Tratamientos</a></li>
+              <li><a href="#casos-clinicos" className="hover:text-brand-600">Casos Clínicos</a></li>
+              <li><a href="#testimonios" className="hover:text-brand-600">Testimonios</a></li>
+              <li><a href="#contacto" className="hover:text-brand-600">Contacto</a></li>
             </ul>
           </div>
 
-          {/* Col 3: Our Services */}
+          {/* Col 3: Tratamientos */}
           <div>
             <h4 className="text-slate-900 font-bold text-xs tracking-wider uppercase mb-3">
-              Our Services
+              Nuestros Tratamientos
             </h4>
             <ul className="space-y-2 text-slate-600 text-xs">
-              <li><a href="#servicios" className="hover:text-brand-600">General Dentistry</a></li>
-              <li><a href="#servicios" className="hover:text-brand-600">Orthodontics</a></li>
-              <li><a href="#servicios" className="hover:text-brand-600">Dental Implants</a></li>
-              <li><a href="#servicios" className="hover:text-brand-600">Teeth Whitening</a></li>
-              <li><a href="#servicios" className="hover:text-brand-600">Kids Dentistry</a></li>
-              <li><a href="#servicios" className="hover:text-brand-600">Cosmetic Dentistry</a></li>
-              <li><a href="#agendamiento" className="text-brand-600 font-semibold hover:underline">Emergency Care</a></li>
+              <li><a href="#servicios" className="hover:text-brand-600">Odontología General</a></li>
+              <li><a href="#servicios" className="hover:text-brand-600">Ortodoncia & Alineadores</a></li>
+              <li><a href="#servicios" className="hover:text-brand-600">Implantes Dentales</a></li>
+              <li><a href="#servicios" className="hover:text-brand-600">Blanqueamiento Philips</a></li>
+              <li><a href="#servicios" className="hover:text-brand-600">Odontopediatría</a></li>
+              <li><a href="#servicios" className="hover:text-brand-600">Diseño de Sonrisa</a></li>
+              <li><a href="#agendamiento" className="text-brand-600 font-semibold hover:underline">Urgencias Dentales</a></li>
             </ul>
           </div>
 
-          {/* Col 4: Contact Us */}
+          {/* Col 4: Contacto */}
           <div>
             <h4 className="text-slate-900 font-bold text-xs tracking-wider uppercase mb-3">
-              Contact Us
+              Contacto & Horarios
             </h4>
             <ul className="space-y-2.5 text-slate-600 text-xs">
               <li className="flex items-start gap-2">
@@ -131,33 +131,33 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
               <li className="flex items-start gap-2">
                 <Clock className="w-3.5 h-3.5 text-slate-800 shrink-0 mt-0.5" />
                 <div>
-                  <p>Mon - Sat: 9 AM - 7 PM</p>
-                  <p className="text-[11px] text-slate-400">Domingos Urgencias</p>
+                  <p>Lunes a Sábado: 9:00 AM – 7:00 PM</p>
+                  <p className="text-[11px] text-slate-400">Domingos: Solo Urgencias</p>
                 </div>
               </li>
             </ul>
           </div>
 
-          {/* Col 5: Handwritten Script Note matching template */}
+          {/* Col 5: Handwritten Script Note en Español */}
           <div className="flex flex-col items-start lg:items-end justify-center pt-4 lg:pt-0">
             <div className="text-left lg:text-right select-none pointer-events-none">
               <span className="font-handwritten text-3xl sm:text-4xl font-bold text-slate-800 leading-tight block transform rotate-3">
-                A Healthier <br />
-                Happier <br />
-                You ♡
+                Una Sonrisa <br />
+                Más Sana y <br />
+                Feliz ♡
               </span>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar matching template */}
+        {/* Bottom Bar en Español */}
         <div className="mt-12 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
-          <p>© {new Date().getFullYear()} Dental Zubiri Clinic. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Clínica Dental Zubiri. Todos los derechos reservados.</p>
           
           <div className="flex items-center gap-5">
-            <span className="hover:text-slate-600 cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-slate-600 cursor-pointer">Terms of Service</span>
+            <span className="hover:text-slate-600 cursor-pointer">Aviso de Privacidad</span>
+            <span className="hover:text-slate-600 cursor-pointer">Términos del Servicio</span>
             {onOpenAdmin && (
               <button
                 onClick={onOpenAdmin}

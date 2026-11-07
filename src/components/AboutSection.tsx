@@ -8,8 +8,8 @@ interface AboutSectionProps {
 export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => {
   const pillars = [
     {
-      title: 'Patient-Centered Care',
-      subtitle: 'Your comfort comes first.',
+      title: 'Atención Centrada en el Paciente',
+      subtitle: 'Tu comodidad y bienestar son lo primero.',
       iconSvg: (
         <svg className="w-5 h-5 stroke-brand-600 fill-none stroke-[1.8]" viewBox="0 0 24 24">
           <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
@@ -17,8 +17,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
       ),
     },
     {
-      title: 'Modern Technology',
-      subtitle: 'Advanced tools for better results.',
+      title: 'Tecnología de Vanguardia',
+      subtitle: 'Herramientas modernas para mejores resultados.',
       iconSvg: (
         <svg className="w-5 h-5 stroke-brand-600 fill-none stroke-[1.8]" viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="3" />
@@ -27,8 +27,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
       ),
     },
     {
-      title: 'Hygienic & Safe',
-      subtitle: 'Highest standards of sterilization.',
+      title: 'Máxima Higiene y Bioseguridad',
+      subtitle: 'Los más altos estándares de esterilización.',
       iconSvg: (
         <svg className="w-5 h-5 stroke-brand-600 fill-none stroke-[1.8]" viewBox="0 0 24 24">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -36,8 +36,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
       ),
     },
     {
-      title: 'Flexible Appointments',
-      subtitle: 'Convenient timings for your busy life.',
+      title: 'Citas y Horarios Flexibles',
+      subtitle: 'Horarios cómodos adaptados a tu vida diaria.',
       iconSvg: (
         <svg className="w-5 h-5 stroke-brand-600 fill-none stroke-[1.8]" viewBox="0 0 24 24">
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -55,7 +55,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
         
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* Left: Doctor Training Photo & Script Note matching template */}
+          {/* Left: Doctor Training Photo & Script Note */}
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-[28px] overflow-hidden shadow-xl border border-slate-200/80 bg-slate-100">
               <img
@@ -74,32 +74,32 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                 <span className="text-xs font-bold text-slate-900">Dra. Zubiri · Capacitación Philips Zoom</span>
               </div>
 
-              {/* Handwritten script note matching template: Confident Smiles Brighter Lives ♡ */}
+              {/* Handwritten script note en Español: Sonrisas Seguras, Vidas Más Brillantes ♡ */}
               <div className="absolute top-8 right-8 text-right select-none pointer-events-none">
                 <span className="font-handwritten text-3xl sm:text-4xl font-bold text-slate-800 leading-tight block transform rotate-2 drop-shadow-sm">
-                  Confident <br />
-                  Smiles <br />
-                  Brighter <br />
-                  Lives ♡
+                  Sonrisas <br />
+                  Seguras, <br />
+                  Vidas Más <br />
+                  Brillantes ♡
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Right: Text & 4 Pillars matching template */}
+          {/* Right: Text & 4 Pillars en Español */}
           <div className="lg:col-span-6 space-y-6">
             <div>
               <span className="text-brand-600 font-extrabold text-xs tracking-widest uppercase block mb-1.5">
-                ABOUT US
+                SOBRE NOSOTROS
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                More Than Dental Care <br />
-                We Care About You
+                Más que Odontología, <br />
+                Nos Preocupamos por Ti
               </h2>
             </div>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              At Dental Zubiri, we combine advanced technology with a compassionate approach to deliver exceptional dental care for you and your family. Your comfort, health, and confidence are always our top priority.
+              En Dental Zubiri combinamos tecnología odontológica de avanzada con un trato cálido y humano para brindarte una atención de excelencia a ti y a tu familia. Tu confort, salud y seguridad son siempre nuestra máxima prioridad.
             </p>
 
             <div>
@@ -107,7 +107,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                 onClick={onOpenBooking}
                 className="btn-glass-primary px-7 py-3 text-sm gap-2"
               >
-                <span>Our Story</span>
+                <span>Nuestra Historia</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

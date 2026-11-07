@@ -23,6 +23,8 @@ Cualquier funcionalidad registrada aquí está blindada: ninguna IA puede elimin
   - Sección "Sobre Nosotros / Dra. Zubiri" con fotografía real en consultorio y pilares de atención.
   - Galería Antes y Después interactiva con los casos clínicos reales de blanqueamiento dental.
   - **Sistema de Agendamiento Interactivo de Citas:** Selección de especialidad, fecha, horario disponible, datos del paciente y confirmación con envío directo a WhatsApp.
+  - **Traducción Integral al Español al 100%:**
+    - Traducidos todos los encabezados, botones, menús de navegación, tarjetas de tratamientos, testimonios, notas manuscritas cursivas y enlaces del pie de página a español nativo y profesional.
   - **Estilo de Botones Liquid Glass & Optical Frosted (Glassmorphism 3D):**
     - Implementadas clases de diseño visual de alta fidelidad basadas en las referencias de cápsula de cristal translúcido:
       - `.btn-glass-primary`: Botón cápsula en degradado azul líquido con brillo especular superior en arco, reflejo de luz interior, sombra de profundidad 3D y respuesta táctil.

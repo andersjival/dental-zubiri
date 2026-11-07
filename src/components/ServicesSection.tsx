@@ -9,10 +9,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
   const services = [
     {
       id: 'general',
-      title: 'General Dentistry',
-      subtitle: 'Odontología General',
-      desc: 'Routine checkups, cleanings and preventive care.',
-      descEs: 'Revisiones rutinarias, limpiezas ultrasónicas y cuidado preventivo.',
+      title: 'Odontología General',
+      desc: 'Revisiones de rutina, limpiezas ultrasónicas y cuidado preventivo.',
       image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=500&auto=format&fit=crop&q=80',
       iconSvg: (
         <svg className="w-5 h-5 stroke-brand-600 fill-none stroke-[1.8]" viewBox="0 0 24 24">
@@ -23,10 +21,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
     },
     {
       id: 'ortodoncia',
-      title: 'Orthodontics',
-      subtitle: 'Ortodoncia & Alineadores',
-      desc: 'Braces & clear aligners for a straighter smile.',
-      descEs: 'Brackets y alineadores transparentes para una sonrisa alineada.',
+      title: 'Ortodoncia & Alineadores',
+      desc: 'Brackets y alineadores transparentes para una sonrisa alineada.',
       image: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=500&auto=format&fit=crop&q=80',
       iconSvg: (
         <svg className="w-5 h-5 stroke-brand-600 fill-none stroke-[1.8]" viewBox="0 0 24 24">
@@ -39,10 +35,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
     },
     {
       id: 'implantes',
-      title: 'Dental Implants',
-      subtitle: 'Implantes Dentales',
-      desc: 'A permanent solution for missing teeth.',
-      descEs: 'Una solución permanente y fija para piezas dentales perdidas.',
+      title: 'Implantes Dentales',
+      desc: 'Solución permanente y fija para piezas dentales perdidas.',
       image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&auto=format&fit=crop&q=80',
       iconSvg: (
         <svg className="w-5 h-5 stroke-brand-600 fill-none stroke-[1.8]" viewBox="0 0 24 24">
@@ -55,10 +49,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
     },
     {
       id: 'blanqueamiento',
-      title: 'Teeth Whitening',
-      subtitle: 'Blanqueamiento Philips',
-      desc: 'Brighter, whiter smile in just one visit.',
-      descEs: 'Sonrisa más brillante y blanca en una sola sesión clínica.',
+      title: 'Blanqueamiento Philips',
+      desc: 'Sonrisa más brillante y blanca en una sola sesión clínica.',
       image: '/images/blanqueamiento-caso1.png',
       iconSvg: (
         <svg className="w-5 h-5 stroke-brand-600 fill-none stroke-[1.8]" viewBox="0 0 24 24">
@@ -69,10 +61,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
     },
     {
       id: 'odontopediatria',
-      title: 'Kids Dentistry',
-      subtitle: 'Odontopediatría',
-      desc: 'Gentle, friendly care for growing smiles.',
-      descEs: 'Cuidado delicado y amigable para las sonrisas en crecimiento.',
+      title: 'Odontopediatría',
+      desc: 'Cuidado delicado y amigable para los pequeños del hogar.',
       image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=500&auto=format&fit=crop&q=80',
       iconSvg: (
         <svg className="w-5 h-5 stroke-brand-600 fill-none stroke-[1.8]" viewBox="0 0 24 24">
@@ -85,10 +75,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
     },
     {
       id: 'diseno-sonrisa',
-      title: 'Cosmetic Dentistry',
-      subtitle: 'Estética & Carillas',
-      desc: 'Enhance your smile with modern solutions.',
-      descEs: 'Realza tu sonrisa con soluciones estéticas de alta definición.',
+      title: 'Estética & Carillas',
+      desc: 'Realza tu sonrisa con soluciones de alta definición estética.',
       image: 'https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=500&auto=format&fit=crop&q=80',
       iconSvg: (
         <svg className="w-5 h-5 stroke-brand-600 fill-none stroke-[1.8]" viewBox="0 0 24 24">
@@ -102,14 +90,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
     <section id="servicios" className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header matching template faithfully */}
+        {/* Section Header 100% en Español */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
             <span className="text-brand-600 font-extrabold text-xs tracking-widest uppercase block mb-1.5">
-              OUR SERVICES
+              NUESTROS TRATAMIENTOS
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Comprehensive Dental Care for Every Smile
+              Cuidado Dental Integral para Cada Sonrisa
             </h2>
           </div>
 
@@ -117,12 +105,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             href="#agendamiento"
             className="inline-flex items-center gap-1.5 text-slate-800 hover:text-brand-600 font-bold text-sm transition-colors group"
           >
-            <span>View All Services</span>
+            <span>Ver Disponibilidad de Citas</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-slate-800 group-hover:text-brand-600" />
           </a>
         </div>
 
-        {/* 6 Cards Grid matching template layout exactly */}
+        {/* 6 Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
           {services.map((srv) => (
             <div
@@ -138,13 +126,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
 
-                  {/* Circular White Badge overlapping bottom left */}
+                  {/* Circular White Badge */}
                   <div className="absolute -bottom-3 left-3 w-10 h-10 rounded-full bg-white shadow-md border border-slate-100 flex items-center justify-center">
                     {srv.iconSvg}
                   </div>
                 </div>
 
-                {/* Content */}
+                {/* Content en Español */}
                 <div className="pt-2 px-1">
                   <h3 className="text-sm font-bold text-slate-900 mb-1 group-hover:text-brand-600 transition-colors">
                     {srv.title}
@@ -155,13 +143,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                 </div>
               </div>
 
-              {/* Action Link: Learn More -> */}
+              {/* Action Link: Conocer Más ➔ */}
               <div className="pt-4 px-1">
                 <button
                   onClick={() => onSelectServiceToBook(srv.id)}
                   className="inline-flex items-center gap-1 text-brand-600 hover:text-brand-700 font-bold text-xs group-hover:underline cursor-pointer"
                 >
-                  <span>Learn More</span>
+                  <span>Conocer Más</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                 </button>
               </div>

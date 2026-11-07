@@ -14,7 +14,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onOpenBooking }) => {
           
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             
-            {/* Left: Smiling Family Photo matching template */}
+            {/* Left: Smiling Family Photo */}
             <div className="lg:col-span-5 relative">
               <div className="rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-slate-200">
                 <img
@@ -25,24 +25,24 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onOpenBooking }) => {
               </div>
             </div>
 
-            {/* Right: Content matching template */}
+            {/* Right: Content 100% en Español */}
             <div className="lg:col-span-7 space-y-6 relative">
               
-              {/* Handwritten script note: Smiles Change Lives ♡ */}
+              {/* Handwritten script note: Las Sonrisas Cambian Vidas ♡ */}
               <div className="absolute top-0 right-0 hidden sm:block text-right select-none pointer-events-none">
                 <span className="font-handwritten text-3xl sm:text-4xl font-bold text-slate-800 block transform rotate-2">
-                  Smiles <br />
-                  Change <br />
-                  Lives ♡
+                  Las Sonrisas <br />
+                  Cambian <br />
+                  Vidas ♡
                 </span>
               </div>
 
               <div>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-md">
-                  Healthy Smiles for a Brighter Tomorrow
+                  Sonrisas Saludables para un Mejor Mañana
                 </h2>
                 <p className="text-xs sm:text-sm text-slate-600 mt-2 max-w-lg leading-relaxed">
-                  Book your appointment today and take the first step towards a healthier, happier smile.
+                  Agenda tu cita hoy mismo y da el primer paso hacia una sonrisa más sana, hermosa y protegida.
                 </p>
               </div>
 
@@ -51,12 +51,12 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onOpenBooking }) => {
                   onClick={onOpenBooking}
                   className="btn-glass-primary px-8 py-3.5 text-sm sm:text-base gap-2.5"
                 >
-                  <span>Book an Appointment</span>
+                  <span>Agendar una Cita</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
 
-              {/* 3 Outline Icons below */}
+              {/* 3 Outline Icons below en Español */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-200/80">
                 <div className="flex items-center gap-2.5">
                   <div className="w-9 h-9 rounded-xl bg-sky-50 flex items-center justify-center text-brand-600 shrink-0">
@@ -65,7 +65,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onOpenBooking }) => {
                     </svg>
                   </div>
                   <span className="text-xs font-bold text-slate-800">
-                    General & Preventive Care
+                    Odontología Preventiva
                   </span>
                 </div>
 
@@ -77,7 +77,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onOpenBooking }) => {
                     </svg>
                   </div>
                   <span className="text-xs font-bold text-slate-800">
-                    Cosmetic & Restorative Care
+                    Estética & Blanqueamiento
                   </span>
                 </div>
 
@@ -91,7 +91,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onOpenBooking }) => {
                     </div>
                   </div>
                   <span className="text-xs font-bold text-slate-800">
-                    Family Dental Care
+                    Cuidado Dental Familiar
                   </span>
                 </div>
               </div>

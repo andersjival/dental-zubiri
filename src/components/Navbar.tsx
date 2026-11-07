@@ -82,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             onClick={onOpenBooking}
             className="btn-glass-primary px-6 py-2.5 text-sm gap-2"
           >
-            <span>Book an Appointment</span>
+            <span>Agendar Cita</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

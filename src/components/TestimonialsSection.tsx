@@ -4,18 +4,21 @@ import { Star } from 'lucide-react';
 export const TestimonialsSection: React.FC = () => {
   const testimonials = [
     {
-      name: 'Ritika Sharma',
-      comment: 'The team at Dental Zubiri is amazing! They made my dental visit so comfortable. Highly recommended!',
+      name: 'Carolina Mendiola',
+      role: 'Paciente de Blanqueamiento',
+      comment: '¡El equipo de Dental Zubiri es increíble! Hicieron que mi visita fuera muy cómoda y sin dolor. El blanqueamiento superó mis expectativas.',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80',
     },
     {
-      name: 'Amit Verma',
-      comment: "Professional, friendly and gentle. The best dental clinic I've been to. My smile has never looked better!",
+      name: 'Roberto Valenzuela',
+      role: 'Paciente de Ortodoncia',
+      comment: 'Profesionales, amables y muy delicados en su trato. La mejor clínica dental a la que he ido. ¡Mi sonrisa nunca se había visto mejor!',
       avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80',
     },
     {
-      name: 'Neha Kapoor',
-      comment: 'Great experience with my kids too. The staff is so kind and patient. Truly a family-friendly clinic.',
+      name: 'Mariana Fuentes',
+      role: 'Mamá de Paciente Infantil',
+      comment: 'Excelente experiencia con mis hijos. La doctora tiene una paciencia infinita y logró que perdieran el miedo al dentista. 100% recomendada.',
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80',
     },
   ];
@@ -24,14 +27,14 @@ export const TestimonialsSection: React.FC = () => {
     <section id="testimonios" className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header 100% en Español */}
         <div className="mb-12">
           <span className="text-brand-600 font-extrabold text-xs tracking-widest uppercase block mb-1.5">
-            WHAT OUR PATIENTS SAY
+            OPINIONES DE NUESTROS PACIENTES
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Real Smiles. <br />
-            Real Stories.
+            Sonrisas Reales. <br />
+            Historias Reales.
           </h2>
         </div>
 
@@ -54,9 +57,14 @@ export const TestimonialsSection: React.FC = () => {
                     alt={item.name}
                     className="w-9 h-9 rounded-full object-cover"
                   />
-                  <span className="text-xs font-bold text-slate-900">
-                    {item.name}
-                  </span>
+                  <div>
+                    <span className="text-xs font-bold text-slate-900 block leading-tight">
+                      {item.name}
+                    </span>
+                    <span className="text-[10px] text-brand-600 font-medium block leading-tight">
+                      {item.role}
+                    </span>
+                  </div>
                 </div>
 
                 <div className="flex items-center gap-0.5 text-amber-400">
