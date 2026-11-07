@@ -2,7 +2,11 @@ import React from 'react';
 import { Phone, Mail, MapPin, Clock, Heart } from 'lucide-react';
 import { CLINIC_INFO, DENTAL_SERVICES } from '../data/dentalData';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenAdmin?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenAdmin }) => {
   return (
     <footer className="bg-slate-950 text-slate-400 text-sm border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -148,6 +152,14 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-6">
             <span className="hover:text-slate-300">Aviso de Privacidad</span>
             <span className="hover:text-slate-300">Términos del Servicio</span>
+            {onOpenAdmin && (
+              <button
+                onClick={onOpenAdmin}
+                className="text-brand-400 hover:text-brand-300 font-semibold cursor-pointer underline flex items-center gap-1"
+              >
+                Acceso Doctora
+              </button>
+            )}
             <span className="flex items-center gap-1 text-slate-400">
               Hecho con <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" /> para tu sonrisa
             </span>

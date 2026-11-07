@@ -12,12 +12,54 @@ export const TIME_SLOTS = [
   '06:00 PM',
 ];
 
+const INITIAL_DEMO_APPOINTMENTS: AppointmentData[] = [
+  {
+    id: 'DZ-849201',
+    serviceId: 'blanqueamiento',
+    serviceTitle: 'Blanqueamiento Dental Philips Zoom',
+    date: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+    timeSlot: '10:15 AM',
+    patientName: 'Valeria Gómez',
+    patientPhone: '+52 55 4912 3841',
+    patientEmail: 'valeria.gomez@gmail.com',
+    notes: 'Interesada en blanqueamiento para evento social el fin de semana.',
+    status: 'Confirmada',
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 'DZ-630192',
+    serviceId: 'ortodoncia',
+    serviceTitle: 'Ortodoncia & Alineadores Invisibles',
+    date: new Date(Date.now() + 86400000 * 2).toISOString().split('T')[0],
+    timeSlot: '03:30 PM',
+    patientName: 'Carlos Ramos',
+    patientPhone: '+52 55 8392 1092',
+    patientEmail: 'carlos.ramos@outlook.com',
+    notes: 'Primera valoración para alineadores transparentes.',
+    status: 'Pendiente',
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 'DZ-518290',
+    serviceId: 'odontologia-general',
+    serviceTitle: 'Odontología General & Preventiva',
+    date: new Date(Date.now() + 86400000).toISOString().split('T')[0],
+    timeSlot: '11:30 AM',
+    patientName: 'Sofía Morales',
+    patientPhone: '+52 55 2019 4432',
+    patientEmail: 'sofia.morales@gmail.com',
+    notes: 'Limpieza dental ultrasónica anual.',
+    status: 'Confirmada',
+    createdAt: new Date().toISOString(),
+  },
+];
+
 export function useAppointmentBooking() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3 | 4>(1);
   const [serviceId, setServiceId] = useState<string>(DENTAL_SERVICES[0].id);
   const [selectedDate, setSelectedDate] = useState<string>(() => {
-    // Tomorrow as default
     const d = new Date();
     d.setDate(d.getDate() + 1);
     return d.toISOString().split('T')[0];
@@ -35,9 +77,12 @@ export function useAppointmentBooking() {
       const stored = localStorage.getItem('dental_zubiri_appointments');
       if (stored) {
         setSavedAppointments(JSON.parse(stored));
+      } else {
+        setSavedAppointments(INITIAL_DEMO_APPOINTMENTS);
+        localStorage.setItem('dental_zubiri_appointments', JSON.stringify(INITIAL_DEMO_APPOINTMENTS));
       }
     } catch {
-      // ignore
+      setSavedAppointments(INITIAL_DEMO_APPOINTMENTS);
     }
   }, []);
 
@@ -78,6 +123,7 @@ export function useAppointmentBooking() {
       patientPhone: patientPhone.trim(),
       patientEmail: patientEmail.trim(),
       notes: notes.trim(),
+      status: 'Pendiente',
       createdAt: new Date().toISOString(),
     };
 
@@ -91,6 +137,28 @@ export function useAppointmentBooking() {
 
     setConfirmedAppointment(newAppt);
     setCurrentStep(4);
+  };
+
+  const updateAppointmentStatus = (id: string, newStatus: AppointmentData['status']) => {
+    const updated = savedAppointments.map((app) =>
+      app.id === id ? { ...app, status: newStatus } : app
+    );
+    setSavedAppointments(updated);
+    try {
+      localStorage.setItem('dental_zubiri_appointments', JSON.stringify(updated));
+    } catch {
+      // ignore
+    }
+  };
+
+  const deleteAppointment = (id: string) => {
+    const updated = savedAppointments.filter((app) => app.id !== id);
+    setSavedAppointments(updated);
+    try {
+      localStorage.setItem('dental_zubiri_appointments', JSON.stringify(updated));
+    } catch {
+      // ignore
+    }
   };
 
   const getWhatsAppBookingLink = () => {
@@ -135,6 +203,34 @@ END:VCALENDAR`;
     document.body.removeChild(link);
   };
 
+  const exportAppointmentsToCSV = () => {
+    if (savedAppointments.length === 0) {
+      alert('No hay citas registradas para exportar.');
+      return;
+    }
+    const headers = ['Folio', 'Paciente', 'Telefono', 'Email', 'Tratamiento', 'Fecha', 'Hora', 'Estado', 'Notas'];
+    const rows = savedAppointments.map((app) => [
+      `"${app.id || ''}"`,
+      `"${app.patientName.replace(/"/g, '""')}"`,
+      `"${app.patientPhone}"`,
+      `"${app.patientEmail || ''}"`,
+      `"${app.serviceTitle.replace(/"/g, '""')}"`,
+      `"${app.date}"`,
+      `"${app.timeSlot}"`,
+      `"${app.status || 'Pendiente'}"`,
+      `"${(app.notes || '').replace(/"/g, '""')}"`,
+    ]);
+    const csvContent = '\uFEFF' + [headers.join(','), ...rows.map((r) => r.join(','))].join('\r\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `Citas-Dental-Zubiri-${new Date().toISOString().split('T')[0]}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const resetForm = () => {
     setCurrentStep(1);
     setPatientName('');
@@ -148,6 +244,8 @@ END:VCALENDAR`;
   return {
     isOpen,
     setIsOpen,
+    isAdminOpen,
+    setIsAdminOpen,
     currentStep,
     setCurrentStep,
     serviceId,
@@ -174,5 +272,8 @@ END:VCALENDAR`;
     downloadCalendarEvent,
     resetForm,
     savedAppointments,
+    updateAppointmentStatus,
+    deleteAppointment,
+    exportAppointmentsToCSV,
   };
 }

@@ -34,6 +34,7 @@ export interface AppointmentData {
   patientPhone: string;
   patientEmail: string;
   notes?: string;
+  status?: 'Pendiente' | 'Confirmada' | 'Atendida' | 'Cancelada';
   createdAt?: string;
 }
 

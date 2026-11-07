@@ -10,6 +10,7 @@ import { TestimonialsSection } from './components/TestimonialsSection';
 import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
 import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
+import { AdminAppointmentsModal } from './components/AdminAppointmentsModal';
 import { useAppointmentBooking } from './hooks/useAppointmentBooking';
 
 export const App: React.FC = () => {
@@ -29,7 +30,7 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Top Banner & Navigation */}
-      <HeaderTopBar />
+      <HeaderTopBar onOpenAdmin={() => booking.setIsAdminOpen(true)} />
       <Navbar onOpenBooking={() => scrollToBooking()} />
 
       {/* Main Page Flow */}
@@ -44,8 +45,18 @@ export const App: React.FC = () => {
       </main>
 
       {/* Footer & Floating Actions */}
-      <Footer />
+      <Footer onOpenAdmin={() => booking.setIsAdminOpen(true)} />
       <WhatsAppFloatingButton />
+
+      {/* Doctor Admin Modal */}
+      <AdminAppointmentsModal
+        isOpen={booking.isAdminOpen}
+        onClose={() => booking.setIsAdminOpen(false)}
+        appointments={booking.savedAppointments}
+        onUpdateStatus={booking.updateAppointmentStatus}
+        onDeleteAppointment={booking.deleteAppointment}
+        onExportCSV={booking.exportAppointmentsToCSV}
+      />
     </div>
   );
 };
