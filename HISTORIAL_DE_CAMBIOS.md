@@ -23,6 +23,10 @@ Cualquier funcionalidad registrada aquí está blindada: ninguna IA puede elimin
   - Sección "Sobre Nosotros / Dra. Zubiri" con fotografía real en consultorio y pilares de atención.
   - Galería Antes y Después interactiva con los casos clínicos reales de blanqueamiento dental.
   - **Sistema de Agendamiento Interactivo de Citas:** Selección de especialidad, fecha, horario disponible, datos del paciente y confirmación con envío directo a WhatsApp.
+  - **Unificación de Contenedor en Banner Hero y Optimización Móvil:**
+    - Integrado el texto de *"Cuidado Dental Experto"* y la fotografía de la paciente en revisión dental dentro del **mismo contenedor panorámico unificado** con bordes curvados (`rounded-[28px]/[36px]`), sombra volumétrica y degradado sutil.
+    - En vista de escritorio, la fotografía se funde orgánicamente a la derecha con máscara de desvanecimiento suave hacia el área de lectura.
+    - En vista móvil/celular, la fotografía se posiciona destacada y nítida en la cabecera del mismo contenedor en proporción `16/10`, manteniendo legibilidad óptima de textos, botones de cristal y cuadrícula de beneficios.
   - **Limpieza de Tipografía Enredada en Primera Fotografía (Hero):**
     - Removidas y restauradas las letras quemadas en la imagen base `hero-patient.png` restaurando el fondo de pared clínico.
     - Reemplazado el bloque de texto manuscrito por un badge cápsula de cristal esmerilado limpio, nítido y 100% legible (*"Sonrisas Sanas & Radiantes"*).

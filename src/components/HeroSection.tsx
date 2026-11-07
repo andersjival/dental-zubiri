@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Play, X } from 'lucide-react';
+import { ArrowRight, Play, X, Sparkles } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenBooking: () => void;
@@ -9,14 +9,49 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
   const [showVideoModal, setShowVideoModal] = useState(false);
 
   return (
-    <section id="inicio" className="relative bg-white pt-6 pb-12 lg:pt-10 lg:pb-16 overflow-hidden">
+    <section id="inicio" className="relative bg-white pt-4 pb-10 sm:pt-6 sm:pb-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Banner Grid matching template image */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+        {/* UNIFIED BANNER CONTAINER: Text + Photo together in the exact same box */}
+        <div className="relative rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-white via-white to-sky-50/40 border border-slate-200/90 shadow-xl overflow-hidden p-6 sm:p-8 lg:p-12">
           
-          {/* Left Column: Spanish Typography & Actions matching uploaded template */}
-          <div className="lg:col-span-6 xl:col-span-6 space-y-6 text-left z-10">
+          {/* DESKTOP BACKGROUND PHOTO (lg and up): Seamlessly blended on the right of the same container */}
+          <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-[48%] xl:w-[46%] pointer-events-none overflow-hidden">
+            <img
+              src="/images/hero-patient.png"
+              alt="Paciente sonriendo en revisión dental con especialista"
+              className="w-full h-full object-cover object-left"
+            />
+            {/* Smooth gradient blend into the white text area */}
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-white/30 to-transparent pointer-events-none" />
+            
+            {/* Top-right subtle badge */}
+            <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-md border border-white/80 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[11px] font-bold text-slate-800">
+                Atención Clínica Activa
+              </span>
+            </div>
+          </div>
+
+          {/* MOBILE / TABLET VIEW: Prominent Photo at the top inside the same container */}
+          <div className="block lg:hidden mb-6 relative">
+            <div className="rounded-2xl overflow-hidden shadow-md border border-slate-200/80 aspect-[16/10] sm:aspect-[2/1] relative bg-slate-100">
+              <img
+                src="/images/hero-patient.png"
+                alt="Paciente sonriendo en revisión dental"
+                className="w-full h-full object-cover object-center"
+              />
+              <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-slate-800 shadow-sm border border-white/80 flex items-center gap-1.5">
+                <Sparkles className="w-3 h-3 text-[#006fe6]" />
+                <span>Sonrisas Radiantes</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CONTENT SECTION (Shares the same container) */}
+          <div className="relative z-10 max-w-2xl text-left space-y-6">
             
             {/* Eyebrow in Spanish */}
             <div className="text-[#006fe6] font-extrabold text-[11px] sm:text-xs tracking-[0.2em] uppercase leading-relaxed">
@@ -24,24 +59,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               <span className="block -mt-0.5">FUTURO MÁS BRILLANTE</span>
             </div>
 
-            {/* Main Heading in Spanish with 3-line cadence */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-slate-900 leading-[1.12]">
+            {/* Main Heading in Spanish */}
+            <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-extrabold tracking-tight text-slate-900 leading-[1.14]">
               Cuidado Dental Experto <br />
               para una Sonrisa Sana, <br />
               <span className="text-[#006fe6]">Más Feliz</span>
             </h1>
 
             {/* Subtitle in Spanish */}
-            <p className="text-base sm:text-lg text-slate-600 max-w-lg leading-relaxed font-normal">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-600 max-w-lg leading-relaxed font-normal">
               Cuidado dental avanzado con un trato delicado. <br className="hidden sm:inline" />
               Porque cada sonrisa cuenta una historia.
             </p>
 
-            {/* Two Pill Action Buttons with Liquid Glass & Frosted Glass Style */}
-            <div className="flex flex-wrap items-center gap-4 pt-1">
+            {/* Two Pill Action Buttons with Liquid Glass Style */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
               <button
                 onClick={onOpenBooking}
-                className="btn-glass-primary px-8 py-3.5 text-sm sm:text-base gap-2.5"
+                className="btn-glass-primary px-8 py-3.5 text-sm sm:text-base gap-2.5 w-full sm:w-auto"
               >
                 <span>Agendar una Cita</span>
                 <ArrowRight className="w-4 h-4" />
@@ -49,7 +84,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
 
               <button
                 onClick={() => setShowVideoModal(true)}
-                className="btn-glass-secondary px-6 py-3.5 text-sm sm:text-base gap-2.5"
+                className="btn-glass-secondary px-6 py-3.5 text-sm sm:text-base gap-2.5 w-full sm:w-auto"
               >
                 <div className="w-6 h-6 rounded-full bg-slate-900/5 flex items-center justify-center text-slate-800">
                   <Play className="w-3 h-3 fill-slate-800 translate-x-0.5" />
@@ -58,13 +93,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               </button>
             </div>
 
-            {/* 4 Feature Badges with Vertical Dividers matching reference image */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 pt-8 border-t border-slate-100">
+            {/* 4 Feature Badges inside the same container */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 pt-6 sm:pt-8 border-t border-slate-200/80 gap-3 sm:gap-0">
               
               {/* Feature 1: Dentistas Especialistas */}
-              <div className="pr-3 pb-3 sm:pb-0">
-                <div className="w-9 h-9 text-[#006fe6] flex items-center justify-start mb-2">
-                  <svg className="w-7 h-7 stroke-[#006fe6] fill-none stroke-[1.8]" viewBox="0 0 24 24">
+              <div className="sm:pr-3">
+                <div className="w-8 h-8 text-[#006fe6] flex items-center justify-start mb-1.5">
+                  <svg className="w-6 h-6 stroke-[#006fe6] fill-none stroke-[1.8]" viewBox="0 0 24 24">
                     <path d="M12 2C8 2 5 4.5 5 8c0 3.5 1.5 7 3 11 1 2.5 2 3 4 3s3-.5 4-3c1.5-4 3-7.5 3-11 0-3.5-3-6-7-6Z" />
                     <path d="M9 12c.5 1.5 1.5 2 3 2s2.5-.5 3-2" />
                   </svg>
@@ -78,9 +113,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               </div>
 
               {/* Feature 2: Última Tecnología */}
-              <div className="sm:border-l sm:border-slate-200 px-3 pb-3 sm:pb-0">
-                <div className="w-9 h-9 text-[#006fe6] flex items-center justify-start mb-2">
-                  <svg className="w-7 h-7 stroke-[#006fe6] fill-none stroke-[1.8]" viewBox="0 0 24 24">
+              <div className="sm:border-l sm:border-slate-200 sm:px-3">
+                <div className="w-8 h-8 text-[#006fe6] flex items-center justify-start mb-1.5">
+                  <svg className="w-6 h-6 stroke-[#006fe6] fill-none stroke-[1.8]" viewBox="0 0 24 24">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
                 </div>
@@ -93,9 +128,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               </div>
 
               {/* Feature 3: Ambiente Cómodo */}
-              <div className="sm:border-l sm:border-slate-200 px-3">
-                <div className="w-9 h-9 text-[#006fe6] flex items-center justify-start mb-2">
-                  <svg className="w-7 h-7 stroke-[#006fe6] fill-none stroke-[1.8]" viewBox="0 0 24 24">
+              <div className="sm:border-l sm:border-slate-200 sm:px-3">
+                <div className="w-8 h-8 text-[#006fe6] flex items-center justify-start mb-1.5">
+                  <svg className="w-6 h-6 stroke-[#006fe6] fill-none stroke-[1.8]" viewBox="0 0 24 24">
                     <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                     <circle cx="9" cy="7" r="4" />
                     <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
@@ -111,9 +146,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               </div>
 
               {/* Feature 4: Atención Personalizada */}
-              <div className="sm:border-l sm:border-slate-200 pl-3">
-                <div className="w-9 h-9 text-[#006fe6] flex items-center justify-start mb-2">
-                  <svg className="w-7 h-7 stroke-[#006fe6] fill-none stroke-[1.8]" viewBox="0 0 24 24">
+              <div className="sm:border-l sm:border-slate-200 sm:pl-3">
+                <div className="w-8 h-8 text-[#006fe6] flex items-center justify-start mb-1.5">
+                  <svg className="w-6 h-6 stroke-[#006fe6] fill-none stroke-[1.8]" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" />
                     <path d="M8 14s1.5 2 4 2 4-2 4-2" />
                     <line x1="9" y1="9" x2="9.01" y2="9" />
@@ -130,46 +165,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
 
             </div>
 
-          </div>
-
-          {/* Right Column: Seamless Patient Image matching template with handwritten note */}
-          <div className="lg:col-span-6 xl:col-span-6 relative">
-            <div className="relative rounded-[32px] overflow-hidden shadow-2xl border border-slate-100 bg-slate-50 group">
-              <img
-                src="/images/hero-patient.png"
-                alt="Paciente atendida por especialista dental en Dental Zubiri"
-                className="w-full h-[400px] sm:h-[480px] lg:h-[500px] object-cover object-center transition-transform duration-500 group-hover:scale-102"
-              />
-
-              {/* Subtle fade left to blend with text on desktop */}
-              <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white/60 to-transparent pointer-events-none hidden sm:block" />
-
-              {/* Clean Frosted Glass Badge - 100% legible, replaces tangled handwritten script */}
-              <div className="absolute top-5 right-5 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-md border border-white/80 flex items-center gap-2 select-none">
-                <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
-                <span className="text-xs font-bold text-slate-800 tracking-tight">
-                  Sonrisas Sanas & Radiantes
-                </span>
-              </div>
-
-              {/* Floating Doctor Credential Badge */}
-              <div className="absolute bottom-5 left-5 right-5 sm:right-auto bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
-                <img
-                  src="/images/dra-zubiri-consultorio.png"
-                  alt="Dra. Zubiri"
-                  className="w-10 h-10 rounded-full object-cover border border-brand-500 shadow-sm"
-                />
-                <div>
-                  <h4 className="font-bold text-slate-900 text-xs sm:text-sm leading-tight">
-                    Dra. Zubiri
-                  </h4>
-                  <p className="text-[11px] text-brand-600 font-semibold leading-tight">
-                    Odontología Integral & Estética Dental
-                  </p>
-                </div>
-              </div>
-
-            </div>
           </div>
 
         </div>
