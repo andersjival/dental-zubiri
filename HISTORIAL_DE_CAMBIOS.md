@@ -23,7 +23,14 @@ Cualquier funcionalidad registrada aquí está blindada: ninguna IA puede elimin
   - Sección "Sobre Nosotros / Dra. Zubiri" con fotografía real en consultorio y pilares de atención.
   - Galería Antes y Después interactiva con los casos clínicos reales de blanqueamiento dental.
   - **Sistema de Agendamiento Interactivo de Citas:** Selección de especialidad, fecha, horario disponible, datos del paciente y confirmación con envío directo a WhatsApp.
-  - **Página Exclusiva de Administración (/admin):**
+  - **Hero Banner con Estilo Exacto en Español:**
+    - Replicada la composición panorámica de la plantilla con textos 100% en español:
+      - Ceja: *"SONRISAS SALUDABLES · FUTURO MÁS BRILLANTE"*
+      - Titular: *"Cuidado Dental Experto para una Sonrisa Sana, Más Feliz"*
+      - Subtítulo: *"Cuidado dental avanzado con un trato delicado. Porque cada sonrisa cuenta una historia."*
+      - Botones pill: *"Agendar una Cita ➔"* y *"▷ Ver Video"*
+      - 4 características con divisores verticales e iconos outline: *Dentistas Especialistas*, *Última Tecnología*, *Ambiente Cómodo y Agradable*, *Atención Personalizada*.
+      - Fotografía de paciente en sillón dental con especialista y nota manuscrita en español: *"Una Sonrisa Más Sana, Un Tú Más Radiante ♡"*.
     - Conversión del panel administrativo de popup/modal a una página web dedicada y exclusiva (`/admin`), protegida por sesión y PIN confidencial (`1234`).
     - Configurado `_redirects` para soporte completo de Single Page Application (SPA) y refresco directo en Cloudflare Pages.
     - Dashboard con analíticas de citas (Totales, Pendientes, Confirmadas, Atendidas), buscador en tiempo real, filtro por fecha, cambio de estado, botón de WhatsApp directo al paciente, exportación a CSV y formulario para registrar citas manuales en consultorio.
