@@ -175,7 +175,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({ booking 
                 <div className="pt-4 flex justify-end">
                   <button
                     onClick={handleNextStep}
-                    className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 active:scale-95 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-md transition-all cursor-pointer"
+                    className="btn-glass-primary px-7 py-3 text-sm gap-2"
                   >
                     <span>Continuar a Fecha y Hora</span>
                     <ArrowRight className="w-4 h-4" />
@@ -252,7 +252,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({ booking 
 
                   <button
                     onClick={handleNextStep}
-                    className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 active:scale-95 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-md transition-all cursor-pointer"
+                    className="btn-glass-primary px-7 py-3 text-sm gap-2"
                   >
                     <span>Continuar a Datos</span>
                     <ArrowRight className="w-4 h-4" />
@@ -361,7 +361,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({ booking 
 
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 active:scale-95 text-white font-semibold text-sm px-7 py-3 rounded-xl shadow-md shadow-brand-600/30 transition-all cursor-pointer"
+                    className="btn-glass-primary px-8 py-3.5 text-sm gap-2"
                   >
                     <CheckCircle className="w-4 h-4" />
                     <span>Confirmar Cita Médica</span>
@@ -412,13 +412,13 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({ booking 
                   </div>
                 </div>
 
-                {/* Direct WhatsApp Confirmation Button */}
+                {/* Direct WhatsApp Confirmation Button with Emerald Glass */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
                   <a
                     href={getWhatsAppBookingLink()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-emerald-600/25 transition-all"
+                    className="w-full sm:w-auto btn-glass-emerald px-7 py-3.5 text-sm gap-2.5"
                   >
                     <MessageCircle className="w-5 h-5" />
                     <span>Confirmar por WhatsApp con la Dra. Zubiri</span>
@@ -426,7 +426,7 @@ export const AppointmentSection: React.FC<AppointmentSectionProps> = ({ booking 
 
                   <button
                     onClick={downloadCalendarEvent}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm px-5 py-3.5 rounded-xl border border-slate-200 shadow-sm cursor-pointer"
+                    className="w-full sm:w-auto btn-glass-secondary px-6 py-3.5 text-sm gap-2"
                   >
                     <Download className="w-4 h-4 text-brand-600" />
                     <span>Guardar en mi Calendario</span>

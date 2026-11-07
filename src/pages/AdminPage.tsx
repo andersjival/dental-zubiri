@@ -242,7 +242,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({
 
               <button
                 type="submit"
-                className="w-full bg-[#006fe6] hover:bg-[#005bb8] active:scale-95 text-white font-bold text-sm py-3.5 rounded-xl shadow-md transition-all cursor-pointer"
+                className="btn-glass-primary w-full py-3.5 text-sm"
               >
                 Ingresar al Panel Administrativo
               </button>
@@ -338,7 +338,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({
 
                   <button
                     onClick={onExportCSV}
-                    className="inline-flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2.5 rounded-xl shadow-sm transition-all cursor-pointer"
+                    className="btn-glass-emerald px-4 py-2.5 text-xs gap-1.5"
                   >
                     <FileSpreadsheet className="w-4 h-4" />
                     <span>Exportar CSV</span>
@@ -346,7 +346,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({
 
                   <button
                     onClick={() => setShowAddModal(true)}
-                    className="inline-flex items-center gap-1.5 bg-[#006fe6] hover:bg-[#005bb8] text-white text-xs font-bold px-3.5 py-2.5 rounded-xl shadow-sm transition-all cursor-pointer"
+                    className="btn-glass-primary px-4 py-2.5 text-xs gap-1.5"
                   >
                     <Plus className="w-4 h-4" />
                     <span>+ Nueva Cita Manual</span>

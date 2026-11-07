@@ -31,7 +31,7 @@ export const HeaderTopBar: React.FC<HeaderTopBarProps> = ({ onOpenBooking, onOpe
 
           <button
             onClick={onOpenBooking}
-            className="inline-flex items-center gap-1.5 bg-white hover:bg-slate-100 text-slate-900 font-bold text-[11px] sm:text-xs px-3.5 py-1 rounded-full shadow-sm transition-transform active:scale-95 cursor-pointer whitespace-nowrap"
+            className="btn-glass-secondary px-4 py-1 text-[11px] sm:text-xs gap-1.5 whitespace-nowrap !text-slate-900"
           >
             <span>Agendar Cita</span>
             <ArrowRight className="w-3 h-3 text-brand-600" />

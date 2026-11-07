@@ -71,7 +71,7 @@ export const BeforeAfterSection: React.FC<BeforeAfterSectionProps> = ({ onSelect
 
                 <button
                   onClick={() => onSelectServiceToBook('blanqueamiento')}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 active:scale-95 text-white font-semibold text-sm py-3.5 px-6 rounded-xl shadow-md shadow-brand-600/20 transition-all cursor-pointer"
+                  className="w-full btn-glass-primary py-3.5 text-sm gap-2"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Quiero mi Cita de Blanqueamiento</span>

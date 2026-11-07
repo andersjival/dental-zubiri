@@ -37,11 +37,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               Porque cada sonrisa cuenta una historia.
             </p>
 
-            {/* Two Pill Action Buttons */}
+            {/* Two Pill Action Buttons with Liquid Glass & Frosted Glass Style */}
             <div className="flex flex-wrap items-center gap-4 pt-1">
               <button
                 onClick={onOpenBooking}
-                className="inline-flex items-center gap-2 bg-[#006fe6] hover:bg-[#005bb8] active:scale-95 text-white text-sm sm:text-base font-semibold px-7 py-3.5 rounded-full shadow-lg shadow-brand-600/25 transition-all cursor-pointer"
+                className="btn-glass-primary px-8 py-3.5 text-sm sm:text-base gap-2.5"
               >
                 <span>Agendar una Cita</span>
                 <ArrowRight className="w-4 h-4" />
@@ -49,9 +49,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
 
               <button
                 onClick={() => setShowVideoModal(true)}
-                className="inline-flex items-center gap-2.5 bg-white hover:bg-slate-50 text-slate-800 text-sm sm:text-base font-semibold px-6 py-3.5 rounded-full border border-slate-300 shadow-sm transition-all cursor-pointer"
+                className="btn-glass-secondary px-6 py-3.5 text-sm sm:text-base gap-2.5"
               >
-                <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-slate-800">
+                <div className="w-6 h-6 rounded-full bg-slate-900/5 flex items-center justify-center text-slate-800">
                   <Play className="w-3 h-3 fill-slate-800 translate-x-0.5" />
                 </div>
                 <span>Ver Video</span>

@@ -80,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
           <button
             onClick={onOpenBooking}
-            className="inline-flex items-center gap-2 bg-[#006fe6] hover:bg-[#005bb8] active:scale-95 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-md shadow-brand-600/20 transition-all cursor-pointer"
+            className="btn-glass-primary px-6 py-2.5 text-sm gap-2"
           >
             <span>Book an Appointment</span>
             <ArrowRight className="w-4 h-4" />
@@ -91,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
         <div className="lg:hidden flex items-center gap-2">
           <button
             onClick={onOpenBooking}
-            className="sm:hidden bg-[#006fe6] text-white px-3.5 py-1.5 rounded-full text-xs font-semibold"
+            className="sm:hidden btn-glass-primary px-4 py-1.5 text-xs font-semibold"
           >
             Cita ➔
           </button>

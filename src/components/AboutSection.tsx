@@ -105,7 +105,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
             <div>
               <button
                 onClick={onOpenBooking}
-                className="inline-flex items-center gap-2 bg-[#006fe6] hover:bg-[#005bb8] active:scale-95 text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-md shadow-brand-600/20 transition-all cursor-pointer"
+                className="btn-glass-primary px-7 py-3 text-sm gap-2"
               >
                 <span>Our Story</span>
                 <ArrowRight className="w-4 h-4" />

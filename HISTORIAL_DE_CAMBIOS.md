@@ -23,7 +23,12 @@ Cualquier funcionalidad registrada aquí está blindada: ninguna IA puede elimin
   - Sección "Sobre Nosotros / Dra. Zubiri" con fotografía real en consultorio y pilares de atención.
   - Galería Antes y Después interactiva con los casos clínicos reales de blanqueamiento dental.
   - **Sistema de Agendamiento Interactivo de Citas:** Selección de especialidad, fecha, horario disponible, datos del paciente y confirmación con envío directo a WhatsApp.
-  - **Hero Banner con Estilo Exacto en Español:**
+  - **Estilo de Botones Liquid Glass & Optical Frosted (Glassmorphism 3D):**
+    - Implementadas clases de diseño visual de alta fidelidad basadas en las referencias de cápsula de cristal translúcido:
+      - `.btn-glass-primary`: Botón cápsula en degradado azul líquido con brillo especular superior en arco, reflejo de luz interior, sombra de profundidad 3D y respuesta táctil.
+      - `.btn-glass-secondary`: Botón de cristal óptico esmerilado translúcido con desenfoque de fondo (`backdrop-blur`), borde brillante y sutil sombra ambiental.
+      - `.btn-glass-emerald`: Botón cápsula de cristal esmeralda para confirmaciones y contacto directo por WhatsApp.
+    - Aplicado de manera uniforme en Header, Navbar, Hero, Tratamientos, Sección Sobre Nosotros, Banner CTA, Agendamiento y Portal Administrativo.
     - Replicada la composición panorámica de la plantilla con textos 100% en español:
       - Ceja: *"SONRISAS SALUDABLES · FUTURO MÁS BRILLANTE"*
       - Titular: *"Cuidado Dental Experto para una Sonrisa Sana, Más Feliz"*
