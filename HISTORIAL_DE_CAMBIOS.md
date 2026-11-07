@@ -23,6 +23,9 @@ Cualquier funcionalidad registrada aquí está blindada: ninguna IA puede elimin
   - Sección "Sobre Nosotros / Dra. Zubiri" con fotografía real en consultorio y pilares de atención.
   - Galería Antes y Después interactiva con los casos clínicos reales de blanqueamiento dental.
   - **Sistema de Agendamiento Interactivo de Citas:** Selección de especialidad, fecha, horario disponible, datos del paciente y confirmación con envío directo a WhatsApp.
+  - **Limpieza de Tipografía Enredada en Primera Fotografía (Hero):**
+    - Removidas y restauradas las letras quemadas en la imagen base `hero-patient.png` restaurando el fondo de pared clínico.
+    - Reemplazado el bloque de texto manuscrito por un badge cápsula de cristal esmerilado limpio, nítido y 100% legible (*"Sonrisas Sanas & Radiantes"*).
   - **Traducción Integral al Español al 100%:**
     - Traducidos todos los encabezados, botones, menús de navegación, tarjetas de tratamientos, testimonios, notas manuscritas cursivas y enlaces del pie de página a español nativo y profesional.
   - **Estilo de Botones Liquid Glass & Optical Frosted (Glassmorphism 3D):**

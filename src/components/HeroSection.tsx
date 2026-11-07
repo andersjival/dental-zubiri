@@ -144,16 +144,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking }) => {
               {/* Subtle fade left to blend with text on desktop */}
               <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white/60 to-transparent pointer-events-none hidden sm:block" />
 
-              {/* Handwritten Script Note in Spanish matching reference image */}
-              <div className="absolute top-6 right-6 text-right select-none pointer-events-none drop-shadow-md">
-                <span className="font-handwritten text-3xl sm:text-4xl lg:text-[42px] font-bold text-slate-800 leading-tight block transform rotate-2">
-                  Una Sonrisa <br />
-                  Más Sana, <br />
-                  Un Tú Más <br />
-                  Radiante ♡
+              {/* Clean Frosted Glass Badge - 100% legible, replaces tangled handwritten script */}
+              <div className="absolute top-5 right-5 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-md border border-white/80 flex items-center gap-2 select-none">
+                <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
+                <span className="text-xs font-bold text-slate-800 tracking-tight">
+                  Sonrisas Sanas & Radiantes
                 </span>
-                {/* Decorative underline curve matching reference */}
-                <div className="w-16 h-1 bg-[#006fe6]/60 rounded-full ml-auto mt-1 transform rotate-2" />
               </div>
 
               {/* Floating Doctor Credential Badge */}
