@@ -55,23 +55,23 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
         
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* Left: Clinic Photo & Script Note matching template */}
+          {/* Left: Doctor Training Photo & Script Note matching template */}
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-[28px] overflow-hidden shadow-xl border border-slate-200/80 bg-slate-100">
               <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&auto=format&fit=crop&q=80"
-                alt="Recepción e instalaciones Dental Zubiri"
-                className="w-full h-[420px] object-cover"
+                src="/images/dra-zubiri-congreso.png"
+                alt="Dra. Zubiri en capacitación de tecnología Philips"
+                className="w-full h-[480px] object-cover object-top"
               />
 
-              {/* Logo on reception wall mockup watermark */}
-              <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-md border border-slate-100 flex items-center gap-2">
+              {/* Clinic badge overlay */}
+              <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-md border border-slate-100 flex items-center gap-2">
                 <div className="w-6 h-6 rounded-lg bg-brand-600 flex items-center justify-center text-white">
                   <svg className="w-3.5 h-3.5 stroke-current fill-none stroke-[2]" viewBox="0 0 24 24">
                     <path d="M12 2C8 2 5 4.5 5 8c0 3.5 1.5 7 3 11 1 2.5 2 3 4 3s3-.5 4-3c1.5-4 3-7.5 3-11 0-3.5-3-6-7-6Z" />
                   </svg>
                 </div>
-                <span className="text-xs font-bold text-slate-900">Dental Zubiri</span>
+                <span className="text-xs font-bold text-slate-900">Dra. Zubiri · Capacitación Philips Zoom</span>
               </div>
 
               {/* Handwritten script note matching template: Confident Smiles Brighter Lives ♡ */}
