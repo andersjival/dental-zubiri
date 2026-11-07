@@ -23,7 +23,10 @@ Cualquier funcionalidad registrada aquí está blindada: ninguna IA puede elimin
   - Sección "Sobre Nosotros / Dra. Zubiri" con fotografía real en consultorio y pilares de atención.
   - Galería Antes y Después interactiva con los casos clínicos reales de blanqueamiento dental.
   - **Sistema de Agendamiento Interactivo de Citas:** Selección de especialidad, fecha, horario disponible, datos del paciente y confirmación con envío directo a WhatsApp.
-  - **Panel Administrativo para la Doctora (Dra. Zubiri):** Acceso protegido por PIN (1234), visualización completa de citas agendadas, métricas (total, pendientes, confirmadas, atendidas), buscador por paciente/teléfono/folio, selector de estado de citas, botón directo para contactar al paciente vía WhatsApp y exportación a Excel / CSV.
+  - **Página Exclusiva de Administración (/admin):**
+    - Conversión del panel administrativo de popup/modal a una página web dedicada y exclusiva (`/admin`), protegida por sesión y PIN confidencial (`1234`).
+    - Configurado `_redirects` para soporte completo de Single Page Application (SPA) y refresco directo en Cloudflare Pages.
+    - Dashboard con analíticas de citas (Totales, Pendientes, Confirmadas, Atendidas), buscador en tiempo real, filtro por fecha, cambio de estado, botón de WhatsApp directo al paciente, exportación a CSV y formulario para registrar citas manuales en consultorio.
   - Sección de Testimonios y Reseñas con 5 estrellas.
   - **Alineación Fiel a Plantilla SmileCare & Fotografía Real:**
     - Reincorporada la fotografía de la Dra. Zubiri en su capacitación de tecnología Philips Zoom (`dra-zubiri-congreso.png`) en la sección *About Us / Sobre Nosotros* con badge institucional y nota manuscrita.

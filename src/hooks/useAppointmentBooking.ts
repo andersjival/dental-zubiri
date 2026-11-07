@@ -56,7 +56,6 @@ const INITIAL_DEMO_APPOINTMENTS: AppointmentData[] = [
 
 export function useAppointmentBooking() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3 | 4>(1);
   const [serviceId, setServiceId] = useState<string>(DENTAL_SERVICES[0].id);
   const [selectedDate, setSelectedDate] = useState<string>(() => {
@@ -137,6 +136,16 @@ export function useAppointmentBooking() {
 
     setConfirmedAppointment(newAppt);
     setCurrentStep(4);
+  };
+
+  const addManualAppointment = (newAppt: AppointmentData) => {
+    const updated = [newAppt, ...savedAppointments];
+    setSavedAppointments(updated);
+    try {
+      localStorage.setItem('dental_zubiri_appointments', JSON.stringify(updated));
+    } catch {
+      // ignore
+    }
   };
 
   const updateAppointmentStatus = (id: string, newStatus: AppointmentData['status']) => {
@@ -244,8 +253,6 @@ END:VCALENDAR`;
   return {
     isOpen,
     setIsOpen,
-    isAdminOpen,
-    setIsAdminOpen,
     currentStep,
     setCurrentStep,
     serviceId,
@@ -275,5 +282,6 @@ END:VCALENDAR`;
     updateAppointmentStatus,
     deleteAppointment,
     exportAppointmentsToCSV,
+    addManualAppointment,
   };
 }

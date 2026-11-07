@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { HeaderTopBar } from './components/HeaderTopBar';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
@@ -10,13 +10,41 @@ import { TestimonialsSection } from './components/TestimonialsSection';
 import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
 import { WhatsAppFloatingButton } from './components/WhatsAppFloatingButton';
-import { AdminAppointmentsModal } from './components/AdminAppointmentsModal';
+import { AdminPage } from './pages/AdminPage';
 import { useAppointmentBooking } from './hooks/useAppointmentBooking';
 
 export const App: React.FC = () => {
+  const [currentPath, setCurrentPath] = useState<string>(() => window.location.pathname);
   const booking = useAppointmentBooking();
 
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigateTo = (path: string) => {
+    window.history.pushState({}, '', path);
+    setCurrentPath(path);
+    window.scrollTo(0, 0);
+  };
+
   const scrollToBooking = (serviceId?: string) => {
+    if (currentPath !== '/') {
+      navigateTo('/');
+      setTimeout(() => {
+        if (serviceId) {
+          booking.setServiceId(serviceId);
+          booking.setCurrentStep(1);
+        }
+        const elem = document.getElementById('agendamiento');
+        if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+      return;
+    }
+
     if (serviceId) {
       booking.setServiceId(serviceId);
       booking.setCurrentStep(1);
@@ -27,13 +55,30 @@ export const App: React.FC = () => {
     }
   };
 
+  // If URL is /admin, render the EXCLUSIVE ADMIN PAGE (not a popup)
+  if (currentPath === '/admin' || currentPath.startsWith('/admin/')) {
+    return (
+      <AdminPage
+        onNavigateHome={() => navigateTo('/')}
+        appointments={booking.savedAppointments}
+        onUpdateStatus={booking.updateAppointmentStatus}
+        onDeleteAppointment={booking.deleteAppointment}
+        onExportCSV={booking.exportAppointmentsToCSV}
+        onAddManualAppointment={booking.addManualAppointment}
+      />
+    );
+  }
+
+  // Public Clinic Website
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      {/* Top Banner & Navigation */}
+      {/* Top Banner with Direct /admin Link */}
       <HeaderTopBar
         onOpenBooking={() => scrollToBooking()}
-        onOpenAdmin={() => booking.setIsAdminOpen(true)}
+        onOpenAdmin={() => navigateTo('/admin')}
       />
+
+      {/* Main Navbar */}
       <Navbar onOpenBooking={() => scrollToBooking()} />
 
       {/* Main Page Flow */}
@@ -48,18 +93,8 @@ export const App: React.FC = () => {
       </main>
 
       {/* Footer & Floating Actions */}
-      <Footer onOpenAdmin={() => booking.setIsAdminOpen(true)} />
+      <Footer onOpenAdmin={() => navigateTo('/admin')} />
       <WhatsAppFloatingButton />
-
-      {/* Doctor Admin Modal */}
-      <AdminAppointmentsModal
-        isOpen={booking.isAdminOpen}
-        onClose={() => booking.setIsAdminOpen(false)}
-        appointments={booking.savedAppointments}
-        onUpdateStatus={booking.updateAppointmentStatus}
-        onDeleteAppointment={booking.deleteAppointment}
-        onExportCSV={booking.exportAppointmentsToCSV}
-      />
     </div>
   );
 };
